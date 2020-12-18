@@ -1,0 +1,36 @@
+input {
+    display : none;
+}
+label { /*label에 대한 css*/
+    display: inline-block;
+    width: 100px;
+    height: 34px;
+    cursor: grab; /*마우스를 올렸을때 손모양으로 바뀜*/
+    position: relative; /*위치를 정상 위치를 기준으로 배치*/
+    background-color: #B773EA;
+}
+label::before { /*label안에 들어갈 스위치 버튼 css에서 클래스만들어줌 (::)이것*/
+    content : '';
+    display: block;
+    width: 26px;
+    height: 26px;
+    left: 6px;
+    bottom: 4px;
+    position: absolute;
+    background-color: aqua; /* 토글 스위치가 스무스하게 작동*/
+    transition: all .4s ease; /*버튼 클릭시 부드럽게 작동*/
+}
+input:checked +label { 
+    background-color : #739CEA;
+}
+input:checked + label:before {
+    -webkit-transform : translateX(65px);
+    -ms-transform : translateX(65px);
+    transform : translateX(65px);
+}
+label.round {
+    border-radius: 34px;
+}
+label.round::before {
+    border-radius: 50%;
+}
